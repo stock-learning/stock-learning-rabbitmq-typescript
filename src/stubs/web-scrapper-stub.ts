@@ -7,12 +7,16 @@ export class WebScrapperStub extends Stub {
         super(server, 'stock-learning-web-scrapper');
     }
 
+    public infomoneyIbovespaCompanyData(): boolean {
+        return super.send('infomoney-ibovespa-company-data',  {});
+    }
+
     public infomoneyIbovespaLiveUpdate(): boolean {
         return super.send('infomoney-ibovespa-live-update',  {});
     }
 
-    public infomoneyIbovespaInitialLoad() {
-        return super.send('infomoney-ibovespa-initial-load',  {});
+    public infomoneyIbovespaHistoricData(): boolean {
+        return super.send('infomoney-ibovespa-historic-data',  {});
     }
 
 }

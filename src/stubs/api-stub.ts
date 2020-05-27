@@ -1,4 +1,4 @@
-import { RabbitMQServer } from '../server/rabbitmq-server';
+import { RabbitMQServer } from './../server/rabbitmq-server';
 import { Stub } from './stub';
 
 export class ApiStub extends Stub {
@@ -7,12 +7,12 @@ export class ApiStub extends Stub {
         super(server, 'stock-learning-api');
     }
 
-    public infomoneyIbovespaLiveUpdate(): boolean {
-        return super.send('infomoney-ibovespa-live-update',  {});
-    }
+    // public infomoneyIbovespaLiveUpdate(): boolean {
+    //     return super.send('infomoney-ibovespa-live-update',  {});
+    // }
     
-    public infomoneyIbovespaInitialLoad(): boolean {
-        return super.send('infomoney-ibovespa-initial-load',  {});
-    }
+    // public infomoneyIbovespaHistoricData(message: IStockDataCollectionModel): boolean {
+    //     return super.send('infomoney-ibovespa-historic-data',  {});
+    // }
 
 }
