@@ -57,13 +57,12 @@ export class RabbitMQServer {
                                 this._channel = channel;
                                 this._channel.assertQueue(queueName, { durable: false });
                                 this._channel.consume(queueName, (msg: Message | null) => {
-                                    console.info(`Message received '${msg?.content.toString()}'`);
                                     const message = JSON.parse(msg?.content?.toString() || '');
                                     if (message?.primitive && message?.content && !!this._consumerMap.has(message?.primitive)) {
-                                        console.info(`Message being handled`);
+                                        console.info(`Message being handled ${message?.primitive}.`);
                                         this._consumerMap.get(message?.primitive).consume(message?.content);
                                     } else {
-                                        console.warn(`Cannot handle message\nconsumers: ${JSON.stringify(this._consumerMap)}\nmessage: ${JSON.stringify(message)}`);
+                                        console.warn(`Cannot handle message\nconsumers: ${JSON.stringify(this._consumerMap.toString())}\nmessage: ${JSON.stringify(message)}`);
                                     }
                                 }, {
                                     noAck: true

@@ -20,6 +20,10 @@ export class ConsumerMap {
         return this._consumers.has(consumerName);
     }
 
+    public toString(): string {
+        return this._consumers.keys.toString();
+    }
+
 }
 
 class ConsumerMapBuilder {
