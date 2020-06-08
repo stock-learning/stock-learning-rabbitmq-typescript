@@ -7,6 +7,14 @@ export class ApiStub extends Stub {
         super(server, 'stock-learning-api');
     }
 
+    public getDailyCompanies() {
+        super.send('get-daily-companies',  {});
+    }
+
+    public getAllCompanies() {
+        super.send('get-all-companies',  {});
+    }
+
     // public infomoneyIbovespaLiveUpdate(): boolean {
     //     return super.send('infomoney-ibovespa-live-update',  {});
     // }
