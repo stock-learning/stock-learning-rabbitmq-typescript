@@ -11,10 +11,18 @@ export class ApiStub extends Stub {
         return super.send('company-news', message);
     }
 
+    public getDailyCompanies() {
+        super.send('get-daily-companies',  {});
+    }
+
+    public getAllCompanies() {
+        super.send('get-all-companies',  {});
+    }
+
     public infomoneyIbovespaCompanyData(message: any): boolean {
         return super.send('infomoney-ibovespa-company-data',  {});
     }
-    
+
     public infomoneyIbovespaHistoricData(message: any): boolean {
         return super.send('infomoney-ibovespa-historic-data',  {});
     }
