@@ -7,12 +7,20 @@ export class ApiStub extends Stub {
         super(server, 'stock-learning-api');
     }
 
-    // public infomoneyIbovespaLiveUpdate(): boolean {
-    //     return super.send('infomoney-ibovespa-live-update',  {});
-    // }
+    public companyNews(message: any): boolean {
+        return super.send('company-news', message);
+    }
+
+    public infomoneyIbovespaCompanyData(message: any): boolean {
+        return super.send('infomoney-ibovespa-company-data',  {});
+    }
     
-    // public infomoneyIbovespaHistoricData(message: IStockDataCollectionModel): boolean {
-    //     return super.send('infomoney-ibovespa-historic-data',  {});
-    // }
+    public infomoneyIbovespaHistoricData(message: any): boolean {
+        return super.send('infomoney-ibovespa-historic-data',  {});
+    }
+
+    public infomoneyIbovespaLiveUpdate(): boolean {
+        return super.send('infomoney-ibovespa-live-update',  {});
+    }
 
 }

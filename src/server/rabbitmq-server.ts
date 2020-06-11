@@ -1,6 +1,7 @@
 import { Channel, connect as connectToRabbitMQ, Message } from 'amqplib/callback_api';
 import { WebScrapperStub } from '../stubs/web-scrapper-stub';
 import { AnalyserStub } from './../stubs/analyser-stub';
+import { ApiScrapperStub } from './../stubs/api-scrapper-stub';
 import { ApiStub } from './../stubs/api-stub';
 import { ConsumerMap } from './consumer-map';
 
@@ -26,12 +27,14 @@ export class RabbitMQServer {
     private _amqpConnectionString: string;
     private _analyserStub: AnalyserStub;
     private _apiStub: ApiStub;
+    private _apiScrapperStub: ApiScrapperStub;
     private _webScrapperStub: WebScrapperStub;
 
     private constructor(amqpConnectionString: string) {
         this._amqpConnectionString = amqpConnectionString;
         this._consumerMap = new ConsumerMap();
         this._analyserStub = new AnalyserStub(this);
+        this._apiScrapperStub = new ApiScrapperStub(this);
         this._apiStub = new ApiStub(this);
         this._webScrapperStub = new WebScrapperStub(this);
     }
@@ -86,6 +89,10 @@ export class RabbitMQServer {
 
     public getApiStub(): ApiStub {
         return this._apiStub;
+    }
+
+    public getApiScrapperStub(): ApiScrapperStub {
+        return this._apiScrapperStub;
     }
 
     public getWebScrapperStub(): WebScrapperStub {
