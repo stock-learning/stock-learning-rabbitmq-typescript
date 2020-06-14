@@ -31,4 +31,8 @@ export class ApiStub extends Stub {
         return super.send('infomoney-ibovespa-live-update',  {});
     }
 
+    public persistTweets(message: any) {
+        return super.send('persist-tweets', message);
+    }
+
 }

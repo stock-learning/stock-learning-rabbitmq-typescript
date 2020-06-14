@@ -11,4 +11,8 @@ export class ApiScrapperStub extends Stub {
         return super.send('fetch-company-news', message);
     }
 
+    public fetchTweetsByAccount(message: { accounts: string[] }): boolean {
+        return super.send('fetch-tweets-by-account', message);
+    }
+
 }
