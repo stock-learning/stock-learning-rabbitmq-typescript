@@ -1,6 +1,6 @@
 import { StockModel } from './stock-model';
 
 export interface RealTimeValueAdditionModel {
-    isPredict: boolean;
+    isPredict: number;
     stocks: StockModel[];
 }
